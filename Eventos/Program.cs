@@ -5,10 +5,13 @@
  * -Definicion del evento
  * -Delegado
  */
-public class Editor {
+SuscriptoCalc calculadora = new SuscriptoCalc(1, 2);
+calculadora.ResultadoSuma();
+
+/*blic class Editor {
     public delegate void EjemploEvento();
     public event EjemploEvento ejemploEvento;
-}
+}*/
 
 public class EditorCalc {
     public delegate void EjemploDelegado();
@@ -52,6 +55,23 @@ public class SuscriptoCalc {
 
     public void EjemploEventHandler() {
         Console.WriteLine("Se imprime el resultado de la operacion");
+    }
+
+    //CONSTRUCTOR
+    public SuscriptoCalc(int a, int b) {
+    editor = new EditorCalc();
+        A = a;
+        B = b;
+        editor.ejemploEvento += EjemploEventHandler;
+    }
+
+    public void ResultadoSuma() {
+    editor.Sumar(A, B);
+    }
+
+    public void ResultadoResta()
+    {
+        editor.Resta(A, B);
     }
 }
 
