@@ -25,12 +25,37 @@ public class EditorCalc {
             Console.WriteLine("No tiene una suscripcion al evento");
         }
     }
+
+
+    public void Resta(int a, int b) {
+        if (ejemploEvento != null)
+        {
+            ejemploEvento();
+            Console.WriteLine($"La resta es: {a - b}");
+        }
+        else
+        {
+            Console.WriteLine("No tiene una suscripcion al evento");
+        }
+    }
 }
 
 /*Suscriptor
  * Acepta el evento y provee un event handler, es decir
  * Metodo que sera ejecutado cuando ocurra el evento.
  */
+
+public class SuscriptoCalc {
+    EditorCalc editor;
+    private readonly int A;
+    private readonly int B;
+
+    public void EjemploEventHandler() {
+        Console.WriteLine("Se imprime el resultado de la operacion");
+    }
+}
+
+
 
 /*Evento
  * Delegado encapsulado en la clase del editor
